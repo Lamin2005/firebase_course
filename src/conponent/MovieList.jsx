@@ -59,11 +59,11 @@ let MovieList = () => {
       console.log("Error", error);
     }
   };
-  
+
   useEffect(() => {
     setLoading(true);
     getMovie();
-  }, [online,handleSubmit]);
+  }, [online]);
 
   useEffect(() => {
     let handleOnline = () => setOnline(true);
