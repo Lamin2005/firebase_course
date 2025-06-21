@@ -39,26 +39,6 @@ let MovieList = () => {
     }
   };
 
-  useEffect(() => {
-    setLoading(true);
-    getMovie();
-  }, [online,handleSubmit]);
-
-  useEffect(() => {
-    let handleOnline = () => setOnline(true);
-    let handleOffline = () => setOnline(false);
-
-    window.addEventListener("online", handleOnline);
-    window.addEventListener("offline", handleOffline);
-
-    return () => {
-      window.removeEventListener("online", handleOnline);
-      window.removeEventListener("offline", handleOffline);
-    };
-  }, []);
-
-  console.log(movie);
-
   let handleSubmit = async () => {
     if (mname === "" && mdate === "") {
       return;
@@ -79,6 +59,28 @@ let MovieList = () => {
       console.log("Error", error);
     }
   };
+  
+  useEffect(() => {
+    setLoading(true);
+    getMovie();
+  }, [online,handleSubmit]);
+
+  useEffect(() => {
+    let handleOnline = () => setOnline(true);
+    let handleOffline = () => setOnline(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
+  console.log(movie);
+
+  
 
   let deleteMovie = async (id) => {
     try {
