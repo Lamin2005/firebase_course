@@ -42,7 +42,7 @@ let MovieList = () => {
   useEffect(() => {
     setLoading(true);
     getMovie();
-  }, [online]);
+  }, [online,handleSubmit]);
 
   useEffect(() => {
     let handleOnline = () => setOnline(true);
